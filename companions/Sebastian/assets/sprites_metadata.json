@@ -1,0 +1,54 @@
+{
+    "idle": {
+	    "row": 1,
+	    "frame_duration": 200
+	},
+	"idle_look_back": {
+	    "row": 2,
+	    "frame_duration": 200
+	},
+	"walk": {
+	    "row": 3,
+	    "frame_duration": 100
+	},
+	"jump_start": {
+	    "row": 4,
+	    "frame_duration": 120
+	},
+	"fly_upward": {
+	    "row": 5,
+	    "frame_duration": 60000
+	},
+	"fly_apex": {
+	    "row": 6,
+	    "frame_duration": 60000
+	},
+	"fly_downward": {
+	    "row": 7,
+	    "frame_duration": 60000
+	},
+	"land_recover": {
+	    "row": 8,
+	    "frame_duration": 120
+	},
+	"land_flat": {
+	    "row": 9,
+	    "frame_duration": 100
+	},
+	"grabbed": {
+	    "row": 10,
+	    "frame_duration": 60000
+	},
+	"sleep": {
+	    "row": 11,
+	    "frame_duration": 1400
+	},
+	"bristle": {
+	    "row": 12,
+	    "frame_duration": 100
+	},
+	"stand_up": {
+	    "row": 8,
+	    "frame_duration": 120
+	}
+}

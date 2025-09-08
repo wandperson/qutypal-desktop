@@ -1,0 +1,19 @@
+# Application
+PyQt6
+
+# Behaviour
+py_trees
+
+# I/O control
+pynput
+
+
+
+# === 
+# Some planned feature required
+# this modules in the future (maybe)
+# ===
+# Speech
+# pyaudio
+# google-cloud-speech
+# SpeechRecognition

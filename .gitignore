@@ -1,0 +1,27 @@
+# VS Code
+.vscode/
+
+# Virtual environments
+.env/
+.venv/
+venv/
+.env.bak/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Pytest and coverage
+.cache/
+.pytest_cache/
+htmlcov/
+coverage.xml
+*.cover
+
+# Logs and temp
+*.log
+*.tmp
+*.swp
+
+# Temporal restriction
+dev/

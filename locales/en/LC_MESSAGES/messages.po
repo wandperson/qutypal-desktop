@@ -1,0 +1,77 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-06 23:50+0300\n"
+"PO-Revision-Date: 2025-05-24 23:50+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS: Hello phrase of companion Sebastian
+#: widgets/dialogue_window.py:24
+msgid "companion_say_hello"
+msgstr "Hewwo, I am Sebastian!"
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the companion repeat the last phrase spoken
+#: widgets/companion_window.py:82
+msgid "companion_command_repeat"
+msgstr "Say again~?"
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. This is a name of submenu with some companion attr control features
+#: widgets/companion_window.py:91
+msgid "companion_tweaker"
+msgstr "Tweak..."
+
+#. TRANSLATORS: This is a context submenu item for the companion window
+#. When clicked, the companion will restore its energy to max
+#: widgets/companion_window.py:95
+msgid "companion_command_recover"
+msgstr "Recover"
+
+#. TRANSLATORS: This is a context submenu item for the companion window
+#. When clicked, the companion will reset its energy to zero
+#: widgets/companion_window.py:103
+msgid "companion_command_exhaust"
+msgstr "Exhaust"
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the companion window will disappear
+#: widgets/companion_window.py:115
+msgid "companion_close"
+msgstr "Take a  stroll"
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the app will quit
+#: widgets/companion_window.py:122
+msgid "exit"
+msgstr "See ya!"
+
+#. TRANSLATORS: Text in tray menu to return companion to screen
+#: widgets/tray_application.py:40
+msgid "return_companion"
+msgstr "Back on screen"
+
+#. TRANSLATORS: Text in tray menu to open settings
+#: widgets/tray_application.py:47
+msgid "preferences"
+msgstr "Preferences"
+
+#. TRANSLATORS: Text in tray menu to quit from app
+#: widgets/tray_application.py:54
+msgid "quit"
+msgstr "Quit"
+
+#~ msgid "memory_usage"
+#~ msgstr "Size of memory used by this program"

@@ -1,0 +1,32 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-24 23:50+0300\n"
+"PO-Revision-Date: 2025-05-24 23:50+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: modules/widgets/settings_window.py:37
+msgid "memory_usage"
+msgstr "Size of memory used by this program"
+
+#. TRANSLATORS: This is the text in tray menu to open settings
+#: modules/widgets/tray_application.py:39
+msgid "preferences"
+msgstr "Preferences"
+
+#. TRANSLATORS: This is the text in tray menu to quit from app
+#: modules/widgets/tray_application.py:53
+msgid "quit"
+msgstr "Quit"

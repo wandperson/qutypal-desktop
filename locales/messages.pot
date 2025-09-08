@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-06 23:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. TRANSLATORS: Hello phrase of companion Sebastian
+#: widgets/dialogue_window.py:24
+msgid "companion_say_hello"
+msgstr ""
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the companion repeat the last phrase spoken
+#: widgets/companion_window.py:82
+msgid "companion_command_repeat"
+msgstr ""
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. This is a name of submenu with some companion attr control features
+#: widgets/companion_window.py:91
+msgid "companion_tweaker"
+msgstr ""
+
+#. TRANSLATORS: This is a context submenu item for the companion window
+#. When clicked, the companion will restore its energy to max
+#: widgets/companion_window.py:95
+msgid "companion_command_recover"
+msgstr ""
+
+#. TRANSLATORS: This is a context submenu item for the companion window
+#. When clicked, the companion will reset its energy to zero
+#: widgets/companion_window.py:103
+msgid "companion_command_exhaust"
+msgstr ""
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the companion window will disappear
+#: widgets/companion_window.py:115
+msgid "companion_close"
+msgstr ""
+
+#. TRANSLATORS: This is a context menu item for the companion window
+#. When clicked, the app will close
+#: widgets/companion_window.py:122
+msgid "exit"
+msgstr ""
+
+#. TRANSLATORS: Text in tray menu to return companion to screen
+#: widgets/tray_application.py:40
+msgid "return_companion"
+msgstr ""
+
+#. TRANSLATORS: Text in tray menu to open settings
+#: widgets/tray_application.py:47
+msgid "preferences"
+msgstr ""
+
+#. TRANSLATORS: Text in tray menu to quit from app
+#: widgets/tray_application.py:54
+msgid "quit"
+msgstr ""
