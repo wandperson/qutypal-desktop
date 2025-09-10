@@ -1,0 +1,432 @@
+<svg width="1388pt" height="332pt" viewBox="0.00 0.00 1388.00 332.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<title>pastafarianism</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-328 1383.91,-328 1383.91,4 -4,4"/>
+<!-- Root -->
+<g id="node1" class="node">
+<title>Root</title>
+<polygon fill="cyan" stroke="black" points="527.91,-298.54 527.91,-313.46 512.1,-324 489.73,-324 473.91,-313.46 473.91,-298.54 489.73,-288 512.1,-288 527.91,-298.54"/>
+<text xml:space="preserve" text-anchor="middle" x="500.91" y="-303.3" font-family="Times,serif" font-size="9.00">Ⓜ Root</text>
+</g>
+<!-- Inverter -->
+<g id="node2" class="node">
+<title>Inverter</title>
+<ellipse fill="ghostwhite" stroke="black" cx="359.91" cy="-234" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="359.91" y="-231.3" font-family="Times,serif" font-size="9.00">Inverter</text>
+</g>
+<!-- Root&#45;&gt;Inverter -->
+<g id="edge1" class="edge">
+<title>Root-&gt;Inverter</title>
+<path fill="none" stroke="black" d="M479.5,-294.37C455.96,-282.69 417.95,-263.81 391.11,-250.49"/>
+<polygon fill="black" stroke="black" points="392.94,-247.49 382.42,-246.18 389.82,-253.76 392.94,-247.49"/>
+</g>
+<!-- Motion -->
+<g id="node4" class="node">
+<title>Motion</title>
+<polygon fill="orange" stroke="black" points="527.91,-252 473.91,-252 473.91,-216 527.91,-216 527.91,-252"/>
+<text xml:space="preserve" text-anchor="middle" x="500.91" y="-231.3" font-family="Times,serif" font-size="9.00">Motion</text>
+</g>
+<!-- Root&#45;&gt;Motion -->
+<g id="edge3" class="edge">
+<title>Root-&gt;Motion</title>
+<path fill="none" stroke="black" d="M500.91,-287.7C500.91,-280.41 500.91,-271.73 500.91,-263.54"/>
+<polygon fill="black" stroke="black" points="504.41,-263.62 500.91,-253.62 497.41,-263.62 504.41,-263.62"/>
+</g>
+<!-- Interaction -->
+<g id="node28" class="node">
+<title>Interaction</title>
+<polygon fill="orange" stroke="black" points="978.4,-252 923.42,-252 923.42,-216 978.4,-216 978.4,-252"/>
+<text xml:space="preserve" text-anchor="middle" x="950.91" y="-231.3" font-family="Times,serif" font-size="9.00">Interaction</text>
+</g>
+<!-- Root&#45;&gt;Interaction -->
+<g id="edge27" class="edge">
+<title>Root-&gt;Interaction</title>
+<path fill="none" stroke="black" d="M528.38,-300.73C605.18,-288.78 822.29,-255.01 911.69,-241.1"/>
+<polygon fill="black" stroke="black" points="912.1,-244.58 921.44,-239.58 911.02,-237.66 912.1,-244.58"/>
+</g>
+<!-- Resetter -->
+<g id="node3" class="node">
+<title>Resetter</title>
+<ellipse fill="gray" stroke="black" cx="290.91" cy="-162" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="290.91" y="-159.3" font-family="Times,serif" font-size="9.00">Resetter</text>
+</g>
+<!-- Inverter&#45;&gt;Resetter -->
+<g id="edge2" class="edge">
+<title>Inverter-&gt;Resetter</title>
+<path fill="none" stroke="black" d="M345.61,-218.5C336.27,-209.02 323.87,-196.44 313.24,-185.66"/>
+<polygon fill="black" stroke="black" points="315.77,-183.23 306.25,-178.56 310.78,-188.14 315.77,-183.23"/>
+</g>
+<!-- IsUserNotInteracting -->
+<g id="node5" class="node">
+<title>IsUserNotInteracting</title>
+<ellipse fill="gray" stroke="black" cx="389.91" cy="-162" rx="53.92" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="389.91" y="-159.3" font-family="Times,serif" font-size="9.00">IsUserNotInteracting</text>
+</g>
+<!-- Motion&#45;&gt;IsUserNotInteracting -->
+<g id="edge4" class="edge">
+<title>Motion-&gt;IsUserNotInteracting</title>
+<path fill="none" stroke="black" d="M473.47,-215.7C458.48,-206.24 439.78,-194.45 423.87,-184.42"/>
+<polygon fill="black" stroke="black" points="425.99,-181.62 415.67,-179.24 422.26,-187.54 425.99,-181.62"/>
+</g>
+<!-- Dynamics -->
+<g id="node6" class="node">
+<title>Dynamics</title>
+<polygon fill="cyan" stroke="black" points="539.93,-154.54 539.93,-169.46 517.08,-180 484.75,-180 461.89,-169.46 461.89,-154.54 484.75,-144 517.08,-144 539.93,-154.54"/>
+<text xml:space="preserve" text-anchor="middle" x="500.91" y="-159.3" font-family="Times,serif" font-size="9.00">Ⓜ Dynamics</text>
+</g>
+<!-- Motion&#45;&gt;Dynamics -->
+<g id="edge5" class="edge">
+<title>Motion-&gt;Dynamics</title>
+<path fill="none" stroke="black" d="M500.91,-215.7C500.91,-208.41 500.91,-199.73 500.91,-191.54"/>
+<polygon fill="black" stroke="black" points="504.41,-191.62 500.91,-181.62 497.41,-191.62 504.41,-191.62"/>
+</g>
+<!-- Activity -->
+<g id="node16" class="node">
+<title>Activity</title>
+<polygon fill="cyan" stroke="black" points="784.5,-154.54 784.5,-169.46 764.24,-180 735.59,-180 715.33,-169.46 715.33,-154.54 735.59,-144 764.24,-144 784.5,-154.54"/>
+<text xml:space="preserve" text-anchor="middle" x="749.91" y="-159.3" font-family="Times,serif" font-size="9.00">Ⓜ Activity</text>
+</g>
+<!-- Motion&#45;&gt;Activity -->
+<g id="edge15" class="edge">
+<title>Motion-&gt;Activity</title>
+<path fill="none" stroke="black" d="M528.03,-225.38C571.39,-213.19 656.64,-189.22 707.92,-174.8"/>
+<polygon fill="black" stroke="black" points="708.8,-178.19 717.48,-172.12 706.91,-171.45 708.8,-178.19"/>
+</g>
+<!-- Falling -->
+<g id="node7" class="node">
+<title>Falling</title>
+<polygon fill="orange" stroke="black" points="191.91,-108 137.91,-108 137.91,-72 191.91,-72 191.91,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="164.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Falling</text>
+</g>
+<!-- Dynamics&#45;&gt;Falling -->
+<g id="edge6" class="edge">
+<title>Dynamics-&gt;Falling</title>
+<path fill="none" stroke="black" d="M471.44,-149.74C465.37,-147.65 458.98,-145.62 452.91,-144 364.87,-120.47 258.92,-103.91 203.31,-96.09"/>
+<polygon fill="black" stroke="black" points="204.12,-92.67 193.73,-94.76 203.15,-99.6 204.12,-92.67"/>
+</g>
+<!-- JumpingOut -->
+<g id="node11" class="node">
+<title>JumpingOut</title>
+<polygon fill="orange" stroke="black" points="428.66,-108 359.16,-108 359.16,-72 428.66,-72 428.66,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="393.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ JumpingOut</text>
+</g>
+<!-- Dynamics&#45;&gt;JumpingOut -->
+<g id="edge10" class="edge">
+<title>Dynamics-&gt;JumpingOut</title>
+<path fill="none" stroke="black" d="M478.74,-146.5C464.62,-137.26 446,-125.08 429.8,-114.48"/>
+<polygon fill="black" stroke="black" points="432.15,-111.83 421.86,-109.29 428.32,-117.69 432.15,-111.83"/>
+</g>
+<!-- OnGround? -->
+<g id="node15" class="node">
+<title>OnGround?</title>
+<ellipse fill="gray" stroke="black" cx="500.91" cy="-90" rx="34.29" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="500.91" y="-87.3" font-family="Times,serif" font-size="9.00">OnGround?</text>
+</g>
+<!-- Dynamics&#45;&gt;OnGround? -->
+<g id="edge14" class="edge">
+<title>Dynamics-&gt;OnGround?</title>
+<path fill="none" stroke="black" d="M500.91,-143.7C500.91,-136.41 500.91,-127.73 500.91,-119.54"/>
+<polygon fill="black" stroke="black" points="504.41,-119.62 500.91,-109.62 497.41,-119.62 504.41,-119.62"/>
+</g>
+<!-- AboveGround? -->
+<g id="node8" class="node">
+<title>AboveGround?</title>
+<ellipse fill="gray" stroke="black" cx="41.91" cy="-18" rx="41.91" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="41.91" y="-15.3" font-family="Times,serif" font-size="9.00">AboveGround?</text>
+</g>
+<!-- Falling&#45;&gt;AboveGround? -->
+<g id="edge7" class="edge">
+<title>Falling-&gt;AboveGround?</title>
+<path fill="none" stroke="black" d="M137.61,-73.46C119.5,-63.15 95.57,-49.54 76.18,-38.5"/>
+<polygon fill="black" stroke="black" points="77.95,-35.49 67.53,-33.58 74.49,-41.57 77.95,-35.49"/>
+</g>
+<!-- Fall -->
+<g id="node9" class="node">
+<title>Fall</title>
+<ellipse fill="gray" stroke="black" cx="128.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="128.91" y="-15.3" font-family="Times,serif" font-size="9.00">Fall</text>
+</g>
+<!-- Falling&#45;&gt;Fall -->
+<g id="edge8" class="edge">
+<title>Falling-&gt;Fall</title>
+<path fill="none" stroke="black" d="M156.01,-71.7C151.93,-63.75 146.99,-54.16 142.46,-45.34"/>
+<polygon fill="black" stroke="black" points="145.59,-43.78 137.91,-36.49 139.37,-46.98 145.59,-43.78"/>
+</g>
+<!-- Land -->
+<g id="node10" class="node">
+<title>Land</title>
+<ellipse fill="gray" stroke="black" cx="200.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="200.91" y="-15.3" font-family="Times,serif" font-size="9.00">Land</text>
+</g>
+<!-- Falling&#45;&gt;Land -->
+<g id="edge9" class="edge">
+<title>Falling-&gt;Land</title>
+<path fill="none" stroke="black" d="M173.81,-71.7C177.9,-63.75 182.83,-54.16 187.36,-45.34"/>
+<polygon fill="black" stroke="black" points="190.46,-46.98 191.92,-36.49 184.23,-43.78 190.46,-46.98"/>
+</g>
+<!-- UnderGround? -->
+<g id="node12" class="node">
+<title>UnderGround?</title>
+<ellipse fill="gray" stroke="black" cx="286.91" cy="-18" rx="41.03" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="286.91" y="-15.3" font-family="Times,serif" font-size="9.00">UnderGround?</text>
+</g>
+<!-- JumpingOut&#45;&gt;UnderGround? -->
+<g id="edge11" class="edge">
+<title>JumpingOut-&gt;UnderGround?</title>
+<path fill="none" stroke="black" d="M367.19,-71.52C352.32,-61.79 333.74,-49.64 318.2,-39.47"/>
+<polygon fill="black" stroke="black" points="320.53,-36.81 310.24,-34.26 316.69,-42.67 320.53,-36.81"/>
+</g>
+<!-- JumpOut -->
+<g id="node13" class="node">
+<title>JumpOut</title>
+<ellipse fill="gray" stroke="black" cx="374.91" cy="-18" rx="28.73" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="374.91" y="-15.3" font-family="Times,serif" font-size="9.00">JumpOut</text>
+</g>
+<!-- JumpingOut&#45;&gt;JumpOut -->
+<g id="edge12" class="edge">
+<title>JumpingOut-&gt;JumpOut</title>
+<path fill="none" stroke="black" d="M389.22,-71.7C387.19,-64.24 384.77,-55.32 382.5,-46.97"/>
+<polygon fill="black" stroke="black" points="385.95,-46.3 379.95,-37.57 379.19,-48.13 385.95,-46.3"/>
+</g>
+<!-- JumpOut* -->
+<g id="node14" class="node">
+<title>JumpOut*</title>
+<ellipse fill="gray" stroke="black" cx="452.91" cy="-18" rx="31.37" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="452.91" y="-15.3" font-family="Times,serif" font-size="9.00">JumpOut*</text>
+</g>
+<!-- JumpingOut&#45;&gt;JumpOut* -->
+<g id="edge13" class="edge">
+<title>JumpingOut-&gt;JumpOut*</title>
+<path fill="none" stroke="black" d="M408.5,-71.7C415.74,-63.11 424.6,-52.58 432.51,-43.21"/>
+<polygon fill="black" stroke="black" points="434.96,-45.73 438.73,-35.83 429.61,-41.22 434.96,-45.73"/>
+</g>
+<!-- Sleeping -->
+<g id="node17" class="node">
+<title>Sleeping</title>
+<polygon fill="orange" stroke="black" points="649.16,-108 592.66,-108 592.66,-72 649.16,-72 649.16,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="620.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Sleeping</text>
+</g>
+<!-- Activity&#45;&gt;Sleeping -->
+<g id="edge16" class="edge">
+<title>Activity-&gt;Sleeping</title>
+<path fill="none" stroke="black" d="M726.55,-148.32C707.87,-138.19 681.29,-123.77 659.47,-111.92"/>
+<polygon fill="black" stroke="black" points="661.3,-108.93 650.84,-107.24 657.96,-115.09 661.3,-108.93"/>
+</g>
+<!-- Moving -->
+<g id="node20" class="node">
+<title>Moving</title>
+<polygon fill="orange" stroke="black" points="776.91,-108 722.91,-108 722.91,-72 776.91,-72 776.91,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="749.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Moving</text>
+</g>
+<!-- Activity&#45;&gt;Moving -->
+<g id="edge19" class="edge">
+<title>Activity-&gt;Moving</title>
+<path fill="none" stroke="black" d="M749.91,-143.7C749.91,-136.41 749.91,-127.73 749.91,-119.54"/>
+<polygon fill="black" stroke="black" points="753.41,-119.62 749.91,-109.62 746.41,-119.62 753.41,-119.62"/>
+</g>
+<!-- Jumping -->
+<g id="node23" class="node">
+<title>Jumping</title>
+<polygon fill="orange" stroke="black" points="905.91,-108 849.91,-108 849.91,-72 905.91,-72 905.91,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="877.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Jumping</text>
+</g>
+<!-- Activity&#45;&gt;Jumping -->
+<g id="edge22" class="edge">
+<title>Activity-&gt;Jumping</title>
+<path fill="none" stroke="black" d="M773.09,-148.32C791.63,-138.19 818,-123.77 839.65,-111.92"/>
+<polygon fill="black" stroke="black" points="841.11,-115.11 848.21,-107.24 837.75,-108.97 841.11,-115.11"/>
+</g>
+<!-- Idling -->
+<g id="node26" class="node">
+<title>Idling</title>
+<polygon fill="orange" stroke="black" points="1060.91,-108 1006.91,-108 1006.91,-72 1060.91,-72 1060.91,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="1033.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Idling</text>
+</g>
+<!-- Activity&#45;&gt;Idling -->
+<g id="edge25" class="edge">
+<title>Activity-&gt;Idling</title>
+<path fill="none" stroke="black" d="M782.49,-152.97C835.38,-139.93 939.65,-114.23 995.86,-100.38"/>
+<polygon fill="black" stroke="black" points="996.42,-103.85 1005.29,-98.05 994.74,-97.05 996.42,-103.85"/>
+</g>
+<!-- EnergyLow? -->
+<g id="node18" class="node">
+<title>EnergyLow?</title>
+<ellipse fill="gray" stroke="black" cx="538.91" cy="-18" rx="36.63" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="538.91" y="-15.3" font-family="Times,serif" font-size="9.00">EnergyLow?</text>
+</g>
+<!-- Sleeping&#45;&gt;EnergyLow? -->
+<g id="edge17" class="edge">
+<title>Sleeping-&gt;EnergyLow?</title>
+<path fill="none" stroke="black" d="M600.64,-71.7C590.01,-62.62 576.86,-51.4 565.44,-41.64"/>
+<polygon fill="black" stroke="black" points="567.75,-39.02 557.87,-35.19 563.2,-44.34 567.75,-39.02"/>
+</g>
+<!-- Sleep -->
+<g id="node19" class="node">
+<title>Sleep</title>
+<ellipse fill="gray" stroke="black" cx="620.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="620.91" y="-15.3" font-family="Times,serif" font-size="9.00">Sleep</text>
+</g>
+<!-- Sleeping&#45;&gt;Sleep -->
+<g id="edge18" class="edge">
+<title>Sleeping-&gt;Sleep</title>
+<path fill="none" stroke="black" d="M620.91,-71.7C620.91,-64.41 620.91,-55.73 620.91,-47.54"/>
+<polygon fill="black" stroke="black" points="624.41,-47.62 620.91,-37.62 617.41,-47.62 624.41,-47.62"/>
+</g>
+<!-- TimeToMove? -->
+<g id="node21" class="node">
+<title>TimeToMove?</title>
+<ellipse fill="gray" stroke="black" cx="706.91" cy="-18" rx="41.03" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="706.91" y="-15.3" font-family="Times,serif" font-size="9.00">TimeToMove?</text>
+</g>
+<!-- Moving&#45;&gt;TimeToMove? -->
+<g id="edge20" class="edge">
+<title>Moving-&gt;TimeToMove?</title>
+<path fill="none" stroke="black" d="M739.28,-71.7C734.37,-63.7 728.42,-54.02 722.98,-45.15"/>
+<polygon fill="black" stroke="black" points="726.13,-43.6 717.91,-36.91 720.17,-47.26 726.13,-43.6"/>
+</g>
+<!-- Move -->
+<g id="node22" class="node">
+<title>Move</title>
+<ellipse fill="gray" stroke="black" cx="792.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="792.91" y="-15.3" font-family="Times,serif" font-size="9.00">Move</text>
+</g>
+<!-- Moving&#45;&gt;Move -->
+<g id="edge21" class="edge">
+<title>Moving-&gt;Move</title>
+<path fill="none" stroke="black" d="M760.54,-71.7C765.53,-63.58 771.57,-53.74 777.09,-44.76"/>
+<polygon fill="black" stroke="black" points="779.95,-46.79 782.2,-36.43 773.99,-43.12 779.95,-46.79"/>
+</g>
+<!-- TimeToJump? -->
+<g id="node24" class="node">
+<title>TimeToJump?</title>
+<ellipse fill="gray" stroke="black" cx="877.91" cy="-18" rx="40.15" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="877.91" y="-15.3" font-family="Times,serif" font-size="9.00">TimeToJump?</text>
+</g>
+<!-- Jumping&#45;&gt;TimeToJump? -->
+<g id="edge23" class="edge">
+<title>Jumping-&gt;TimeToJump?</title>
+<path fill="none" stroke="black" d="M877.91,-71.7C877.91,-64.41 877.91,-55.73 877.91,-47.54"/>
+<polygon fill="black" stroke="black" points="881.41,-47.62 877.91,-37.62 874.41,-47.62 881.41,-47.62"/>
+</g>
+<!-- JumpPreparing -->
+<g id="node25" class="node">
+<title>JumpPreparing</title>
+<ellipse fill="gray" stroke="black" cx="976.91" cy="-18" rx="41.33" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="976.91" y="-15.3" font-family="Times,serif" font-size="9.00">JumpPreparing</text>
+</g>
+<!-- Jumping&#45;&gt;JumpPreparing -->
+<g id="edge24" class="edge">
+<title>Jumping-&gt;JumpPreparing</title>
+<path fill="none" stroke="black" d="M902.64,-71.52C915.95,-62.11 932.47,-50.42 946.56,-40.46"/>
+<polygon fill="black" stroke="black" points="948.47,-43.4 954.61,-34.77 944.43,-37.68 948.47,-43.4"/>
+</g>
+<!-- Idle -->
+<g id="node27" class="node">
+<title>Idle</title>
+<ellipse fill="gray" stroke="black" cx="1062.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1062.91" y="-15.3" font-family="Times,serif" font-size="9.00">Idle</text>
+</g>
+<!-- Idling&#45;&gt;Idle -->
+<g id="edge26" class="edge">
+<title>Idling-&gt;Idle</title>
+<path fill="none" stroke="black" d="M1041.08,-71.7C1044.29,-63.95 1048.15,-54.64 1051.72,-46.02"/>
+<polygon fill="black" stroke="black" points="1054.85,-47.6 1055.45,-37.02 1048.39,-44.92 1054.85,-47.6"/>
+</g>
+<!-- IsOneInteraction -->
+<g id="node29" class="node">
+<title>IsOneInteraction</title>
+<ellipse fill="gray" stroke="black" cx="950.91" cy="-162" rx="44.84" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="950.91" y="-159.3" font-family="Times,serif" font-size="9.00">IsOneInteraction</text>
+</g>
+<!-- Interaction&#45;&gt;IsOneInteraction -->
+<g id="edge28" class="edge">
+<title>Interaction-&gt;IsOneInteraction</title>
+<path fill="none" stroke="black" d="M950.91,-215.7C950.91,-208.41 950.91,-199.73 950.91,-191.54"/>
+<polygon fill="black" stroke="black" points="954.41,-191.62 950.91,-181.62 947.41,-191.62 954.41,-191.62"/>
+</g>
+<!-- Actions -->
+<g id="node30" class="node">
+<title>Actions</title>
+<polygon fill="cyan" stroke="black" points="1198.54,-154.54 1198.54,-169.46 1178.84,-180 1150.98,-180 1131.28,-169.46 1131.28,-154.54 1150.98,-144 1178.84,-144 1198.54,-154.54"/>
+<text xml:space="preserve" text-anchor="middle" x="1164.91" y="-159.3" font-family="Times,serif" font-size="9.00">Ⓜ Actions</text>
+</g>
+<!-- Interaction&#45;&gt;Actions -->
+<g id="edge29" class="edge">
+<title>Interaction-&gt;Actions</title>
+<path fill="none" stroke="black" d="M978.89,-223.85C1016.23,-211.64 1082.57,-189.94 1125.1,-176.02"/>
+<polygon fill="black" stroke="black" points="1126.05,-179.4 1134.46,-172.96 1123.87,-172.74 1126.05,-179.4"/>
+</g>
+<!-- Disturbing -->
+<g id="node31" class="node">
+<title>Disturbing</title>
+<polygon fill="orange" stroke="black" points="1196.66,-108 1133.16,-108 1133.16,-72 1196.66,-72 1196.66,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="1164.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Disturbing</text>
+</g>
+<!-- Actions&#45;&gt;Disturbing -->
+<g id="edge30" class="edge">
+<title>Actions-&gt;Disturbing</title>
+<path fill="none" stroke="black" d="M1164.91,-143.7C1164.91,-136.41 1164.91,-127.73 1164.91,-119.54"/>
+<polygon fill="black" stroke="black" points="1168.41,-119.62 1164.91,-109.62 1161.41,-119.62 1168.41,-119.62"/>
+</g>
+<!-- Holding -->
+<g id="node34" class="node">
+<title>Holding</title>
+<polygon fill="orange" stroke="black" points="1308.16,-108 1253.66,-108 1253.66,-72 1308.16,-72 1308.16,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="1280.91" y="-87.3" font-family="Times,serif" font-size="9.00">Ⓜ Holding</text>
+</g>
+<!-- Actions&#45;&gt;Holding -->
+<g id="edge33" class="edge">
+<title>Actions-&gt;Holding</title>
+<path fill="none" stroke="black" d="M1186.73,-147.83C1202.75,-138.17 1224.91,-124.8 1243.7,-113.45"/>
+<polygon fill="black" stroke="black" points="1245.41,-116.51 1252.16,-108.35 1241.79,-110.52 1245.41,-116.51"/>
+</g>
+<!-- Disturb? -->
+<g id="node32" class="node">
+<title>Disturb?</title>
+<ellipse fill="gray" stroke="black" cx="1135.91" cy="-18" rx="27.55" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1135.91" y="-15.3" font-family="Times,serif" font-size="9.00">Disturb?</text>
+</g>
+<!-- Disturbing&#45;&gt;Disturb? -->
+<g id="edge31" class="edge">
+<title>Disturbing-&gt;Disturb?</title>
+<path fill="none" stroke="black" d="M1157.74,-71.7C1154.54,-63.95 1150.68,-54.64 1147.1,-46.02"/>
+<polygon fill="black" stroke="black" points="1150.44,-44.92 1143.38,-37.02 1143.97,-47.6 1150.44,-44.92"/>
+</g>
+<!-- Disturb -->
+<g id="node33" class="node">
+<title>Disturb</title>
+<ellipse fill="gray" stroke="black" cx="1208.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1208.91" y="-15.3" font-family="Times,serif" font-size="9.00">Disturb</text>
+</g>
+<!-- Disturbing&#45;&gt;Disturb -->
+<g id="edge32" class="edge">
+<title>Disturbing-&gt;Disturb</title>
+<path fill="none" stroke="black" d="M1175.79,-71.7C1180.89,-63.58 1187.08,-53.74 1192.72,-44.76"/>
+<polygon fill="black" stroke="black" points="1195.6,-46.75 1197.96,-36.43 1189.67,-43.03 1195.6,-46.75"/>
+</g>
+<!-- Hold? -->
+<g id="node35" class="node">
+<title>Hold?</title>
+<ellipse fill="gray" stroke="black" cx="1280.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1280.91" y="-15.3" font-family="Times,serif" font-size="9.00">Hold?</text>
+</g>
+<!-- Holding&#45;&gt;Hold? -->
+<g id="edge34" class="edge">
+<title>Holding-&gt;Hold?</title>
+<path fill="none" stroke="black" d="M1280.91,-71.7C1280.91,-64.41 1280.91,-55.73 1280.91,-47.54"/>
+<polygon fill="black" stroke="black" points="1284.41,-47.62 1280.91,-37.62 1277.41,-47.62 1284.41,-47.62"/>
+</g>
+<!-- Hold -->
+<g id="node36" class="node">
+<title>Hold</title>
+<ellipse fill="gray" stroke="black" cx="1352.91" cy="-18" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1352.91" y="-15.3" font-family="Times,serif" font-size="9.00">Hold</text>
+</g>
+<!-- Holding&#45;&gt;Hold -->
+<g id="edge35" class="edge">
+<title>Holding-&gt;Hold</title>
+<path fill="none" stroke="black" d="M1298.71,-71.7C1308.21,-62.46 1320,-50.99 1330.16,-41.12"/>
+<polygon fill="black" stroke="black" points="1332.41,-43.81 1337.14,-34.33 1327.53,-38.8 1332.41,-43.81"/>
+</g>
+</g>
+</svg>
