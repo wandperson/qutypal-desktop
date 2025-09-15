@@ -8,7 +8,7 @@ a = Analysis(
     datas = [
         ('assets', '_app/assets'),
         ('companions', '_app/companions'),
-        ('locales', '_app/locales'),
+        ('resources', '_app/resources'),
     ],
     hiddenimports=[
         'PyQt6',
