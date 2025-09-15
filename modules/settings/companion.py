@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 
 @dataclass
 class CompanionSettings:
-    model_scale: float = 2
+    model_scale: float = 1.4
     horizontal_anchor: float = 0.50
     vertical_anchor: float = 0.80
 

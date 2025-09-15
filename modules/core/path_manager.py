@@ -11,7 +11,7 @@ class PathManager:
 
     @staticmethod
     def get_icon_path():
-        return PathManager.MAIN_DIR / 'assets' / 'app.ico'
+        return PathManager.MAIN_DIR / 'assets' / 'icon.ico'
     
     @staticmethod
     def get_companions_dir():
