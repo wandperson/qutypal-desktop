@@ -1,0 +1,13 @@
+# Companion settings
+
+# Companion window size. Represent percent of static sprite size.
+# Values: 0.5 ~ 8
+# Default: 1.4
+model_scale = 1.4
+
+# Feet point of companion window. Represent percent of static sprite size.
+# From left to right, from top to bottom.
+# Values: 0.01 ~ 1.0
+# Default: 0.50, 0.80
+horizontal_anchor = 0.50
+vertical_anchor = 0.80

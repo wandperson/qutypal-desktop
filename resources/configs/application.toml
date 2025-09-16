@@ -1,0 +1,11 @@
+# Application settings
+
+# Whether companion starts on application startup
+# Values: true, false
+# Default: true
+companion_run_on_launch = true
+
+# Interface language
+# Values: "en", "ua"
+# Default: "en"
+language = "en"

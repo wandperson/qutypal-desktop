@@ -16,3 +16,15 @@ class PathManager:
     @staticmethod
     def get_companions_dir():
         return PathManager.MAIN_DIR / 'companions'
+
+    @staticmethod
+    def get_companions_config_path():
+        return PathManager.MAIN_DIR / 'resources' / 'configs' / 'companion.toml'
+    
+    @staticmethod
+    def get_app_settings_path():
+        return PathManager.MAIN_DIR / 'resources' / 'configs' / 'application.toml'
+
+    @staticmethod
+    def get_locales_dir():
+        return PathManager.MAIN_DIR / 'resources' / 'locales'
