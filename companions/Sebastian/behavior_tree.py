@@ -19,32 +19,31 @@ if sys.stderr is None:
 
 
 # Basic
+import random as r
 from time import time
 from math import sqrt
-import random as r
+from typing import TYPE_CHECKING
 
 # IO
 from pynput.mouse import Controller
 
 # Behavior
+from py_trees.blackboard import Blackboard
 from py_trees.common import Status
-from py_trees.behaviour import Behaviour as TBehaviour
+from py_trees.behaviour import Behaviour
 from py_trees.decorators import Inverter
 from py_trees.composites import Sequence, Selector
 
 # Custom modules
-from modules.companion_base import Companion
+if TYPE_CHECKING:
+    from modules.companion_base import Companion
 
 
 
-# TODO: I should use blackboard instead of current obscurantism
-# https://py-trees.readthedocs.io/en/devel/blackboards.html
-# bb = py_trees.blackboard.Blackboard()
-# bb.companion = companion_api
-# bb.mouse = Controller()
-class Behaviour(TBehaviour):
-    mouse: Controller = None
-    companion: Companion = None
+# Typied Blackboard
+class TBoard(Blackboard):
+    companion: "Companion"
+    mouse: Controller
 
 
 
@@ -56,14 +55,14 @@ class Resetter(Behaviour):
         super().__init__(name=name)
 
     def initialise(self):
-        energy = self.companion.get_energy()
-        energy_percent = int(self.companion.get_energy_level() * 100)
+        energy = TBoard.companion.get_energy()
+        energy_percent = int(TBoard.companion.get_energy_level() * 100)
         print(f"Resetter | New tick | ⚡ {energy} ({energy_percent} %)")
 
         # Stop animation from some of interactions animation
-        self.companion.stop_animation()
+        TBoard.companion.stop_animation()
         # Reduce interaction actions to 1 or 0
-        self.companion.resolve_interactions()
+        TBoard.companion.resolve_interactions()
 
     def update(self):
         return Status.SUCCESS
@@ -77,7 +76,7 @@ class IsOnGround(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.get_feet_pos()[1] + 1 == self.companion.get_ground_level():
+        if TBoard.companion.get_feet_pos()[1] + 1 == TBoard.companion.get_ground_level():
             return Status.SUCCESS
         return Status.FAILURE
 
@@ -89,7 +88,7 @@ class IsAboveGround(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.get_feet_pos()[1] + 1 < self.companion.get_ground_level():
+        if TBoard.companion.get_feet_pos()[1] + 1 < TBoard.companion.get_ground_level():
             return Status.SUCCESS
         return Status.FAILURE
 
@@ -99,28 +98,28 @@ class Fall(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.fall_to_ground():
-            if self.companion.get_velocities()[1] < -4:
-                self.companion.start_animation('fly_upward')
-            elif self.companion.get_velocities()[1] > 4:
-                self.companion.start_animation('fly_downward')
+        if TBoard.companion.fall_to_ground():
+            if TBoard.companion.get_velocities()[1] < -4:
+                TBoard.companion.start_animation('fly_upward')
+            elif TBoard.companion.get_velocities()[1] > 4:
+                TBoard.companion.start_animation('fly_downward')
             else:
-                self.companion.start_animation('fly_apex')
+                TBoard.companion.start_animation('fly_apex')
 
-            if 0 <= self.companion.get_velocities()[1] <= 22:
+            if 0 <= TBoard.companion.get_velocities()[1] <= 22:
                 self._catch_mouse()
             return Status.RUNNING
         self._catch_mouse()
         return Status.SUCCESS
 
     def _catch_mouse(self):
-        mouse_x, mouse_y = self.mouse.position
-        x, y = self.companion.get_feet_pos()
+        mouse_x, mouse_y = TBoard.mouse.position
+        x, y = TBoard.companion.get_feet_pos()
         if x - 28 <= mouse_x <= x + 28 \
         and y - 18 <= mouse_y <= y:
-            self.mouse.position = (
-                int(mouse_x + self.companion.get_velocities()[0]),
-                int(y + self.companion.get_velocities()[1])
+            TBoard.mouse.position = (
+                int(mouse_x + TBoard.companion.get_velocities()[0]),
+                int(y + TBoard.companion.get_velocities()[1])
             )
 
 class Landing(Behaviour):
@@ -130,14 +129,14 @@ class Landing(Behaviour):
     def initialise(self):
         animation_name = 'land_recover'
 
-        if self.companion.get_land_velocity() > 30:
+        if TBoard.companion.get_land_velocity() > 30:
             animation_name = 'land_flat'
         
-        self.companion.start_animation(name=animation_name, repeat=1)
+        TBoard.companion.start_animation(name=animation_name, repeat=1)
 
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-3)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-3)
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -148,23 +147,23 @@ class IsUnderGround(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.get_feet_pos()[1] + 1 > self.companion.get_ground_level():
+        if TBoard.companion.get_feet_pos()[1] + 1 > TBoard.companion.get_ground_level():
             return Status.SUCCESS
         return Status.FAILURE
 
 
-class JumpSetupFrom(Behaviour):
-    def __init__(self, name="JumpOut"):
+class JumpOutSetup(Behaviour):
+    def __init__(self, name="JumpOutSetup"):
         super().__init__(name)
 
     def initialise(self):
         # He-he, another in a hurry obscurantism
         # TODO: Rewrite velocity calculation logic
 
-        x, y = self.companion.get_centers()
+        x, y = TBoard.companion.get_centers()
 
-        distance_x = 30 * self.companion._window.label.direction
-        distance_y = y + 80 - self.companion.get_ground_level()
+        distance_x = 30 * TBoard.companion._window.label.direction
+        distance_y = y + 80 - TBoard.companion.get_ground_level()
 
         gravity = 64
         t = sqrt(2 * abs(distance_y) / gravity)
@@ -175,12 +174,12 @@ class JumpSetupFrom(Behaviour):
         vertical_velocity = min(26, (distance_y + 0.5 * gravity * t**2) / t / 4)
         vertical_velocity *= -1
 
-        self.companion.set_velocities(vx=horizontal_velocity, vy=vertical_velocity)
-        self.companion.start_animation(name='jump_start', repeat=1)
+        TBoard.companion.set_velocities(vx=horizontal_velocity, vy=vertical_velocity)
+        TBoard.companion.start_animation(name='jump_start', repeat=1)
 
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-3)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-3)
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -190,13 +189,13 @@ class JumpOut(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.fall_to_ground():
-            if self.companion.get_velocities()[1] < -4:
-                self.companion.start_animation('fly_upward')
-            elif self.companion.get_velocities()[1] > 4:
-                self.companion.start_animation('fly_downward')
+        if TBoard.companion.fall_to_ground():
+            if TBoard.companion.get_velocities()[1] < -4:
+                TBoard.companion.start_animation('fly_upward')
+            elif TBoard.companion.get_velocities()[1] > 4:
+                TBoard.companion.start_animation('fly_downward')
             else:
-                self.companion.start_animation('fly_apex')
+                TBoard.companion.start_animation('fly_apex')
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -209,8 +208,8 @@ class IsUserNotInteracting(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.get_interactions():
-            self.companion.stop_animation()
+        if TBoard.companion.get_interactions():
+            TBoard.companion.stop_animation()
             return Status.FAILURE
         return Status.SUCCESS
 
@@ -222,7 +221,7 @@ class IsEnergyLow(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.companion.get_energy_level() <= 0.15:
+        if TBoard.companion.get_energy_level() <= 0.15:
             return Status.SUCCESS
         return Status.FAILURE
 
@@ -231,12 +230,12 @@ class Sleep(Behaviour):
         super().__init__(name)
 
     def initialise(self):
-        self.companion.start_animation(name='sleep')
+        TBoard.companion.start_animation(name='sleep')
     
     def update(self):
-        self.companion.change_energy(40)
+        TBoard.companion.change_energy(40)
         
-        if self.companion.get_energy_level() < 0.95:
+        if TBoard.companion.get_energy_level() < 0.95:
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -254,9 +253,9 @@ class IsTimeToMove(Behaviour):
         self.timer = time()
 
     def initialise(self):
-        x = self.companion.get_feet_pos()[0]
+        x = TBoard.companion.get_feet_pos()[0]
 
-        left_x, right_x = self.companion.get_walking_area_x()
+        left_x, right_x = TBoard.companion.get_walking_area_x()
         if not left_x <= x <= right_x:
             self.out_of_field = True
             return
@@ -264,13 +263,13 @@ class IsTimeToMove(Behaviour):
         elapsed_time = time() - self.timer
         self.probability = min(1, self.probability + (elapsed_time * self.icrease_rate))
 
-        mouse_x, mouse_y = self.mouse.position
+        mouse_x, mouse_y = TBoard.mouse.position
 
-        ground = self.companion.get_ground_level()
+        ground = TBoard.companion.get_ground_level()
 
         search_sizes = [
-            self.companion._window.size().width() * 1.4,
-            self.companion._window.anchor[1] * 1.2
+            TBoard.companion._window.size().width() * 1.4,
+            TBoard.companion._window.anchor[1] * 1.2
         ]
         # Companion want to move to mouse
         # when mouse in the field of sight
@@ -299,50 +298,50 @@ class Move(Behaviour):
         self.desired_position_x = None
 
     def initialise(self):
-        x = self.companion.get_feet_pos()[0]
+        x = TBoard.companion.get_feet_pos()[0]
 
-        left_x, right_x = self.companion.get_walking_area_x()
+        left_x, right_x = TBoard.companion.get_walking_area_x()
 
         if not left_x <= x <= right_x:
             dist_left = abs(x - left_x)
             dist_right = abs(x - right_x)
 
-            ratio = self.companion._window.size().width() / 2
+            ratio = TBoard.companion._window.size().width() / 2
             if dist_left < dist_right:
                 self.desired_position_x = r.randint(
                     int(ratio),
-                    int(ratio + (5 * self.companion._window.anchor[0]))
+                    int(ratio + (5 * TBoard.companion._window.anchor[0]))
                 )
             else:
                 self.desired_position_x = r.randint(
-                    int(right_x - ratio - (5 * self.companion._window.anchor[0])),
+                    int(right_x - ratio - (5 * TBoard.companion._window.anchor[0])),
                     int(right_x - ratio)
                 )
-            self.companion.resolve_gaze(self.desired_position_x)
-            self.companion.start_animation(name="walk")
+            TBoard.companion.resolve_gaze(self.desired_position_x)
+            TBoard.companion.start_animation(name="walk")
             self.out_of_field = True
             return
 
-        mouse_x, mouse_y = self.mouse.position
+        mouse_x, mouse_y = TBoard.mouse.position
 
-        ground = self.companion.get_ground_level()
+        ground = TBoard.companion.get_ground_level()
 
         search_sizes = [
-            self.companion._window.size().width() * 1.4,
-            self.companion._window.anchor[1] * 1.2
+            TBoard.companion._window.size().width() * 1.4,
+            TBoard.companion._window.anchor[1] * 1.2
         ]
 
         if ground - 1 - search_sizes[1] <= mouse_y <= ground:
             self.desired_position_x = mouse_x + r.randint(-120, 120)
         else:
-            self.desired_position_x = r.randint(*self.companion.get_walking_area_x())
+            self.desired_position_x = r.randint(*TBoard.companion.get_walking_area_x())
         
-        self.companion.resolve_gaze(self.desired_position_x)
-        self.companion.start_animation(name="walk")
+        TBoard.companion.resolve_gaze(self.desired_position_x)
+        TBoard.companion.start_animation(name="walk")
 
     def update(self):
-        if self.companion.move_to_goal(x=self.desired_position_x, speed_multiplier=1.6 if self.out_of_field else 1):
-            self.companion.change_energy(-5)
+        if TBoard.companion.move_to_goal(x=self.desired_position_x, speed_multiplier=1.6 if self.out_of_field else 1):
+            TBoard.companion.change_energy(-5)
             return Status.RUNNING
         self.desired_position_x = None
         self.out_of_field = False
@@ -364,16 +363,16 @@ class IsTimeToJump(Behaviour):
         elapsed_time = time() - self.timer
         self.probability = min(1, self.probability + (elapsed_time * self.icrease_rate) / 2)
 
-        x = self.companion.get_feet_pos()[0]
-        mouse_x, mouse_y = self.mouse.position
+        x = TBoard.companion.get_feet_pos()[0]
+        mouse_x, mouse_y = TBoard.mouse.position
 
-        ground = self.companion.get_ground_level()
+        ground = TBoard.companion.get_ground_level()
         search_sizes = [
-            self.companion._window.size().width() * 1.4,
-            self.companion._window.anchor[1] * 1.4
+            TBoard.companion._window.size().width() * 1.4,
+            TBoard.companion._window.anchor[1] * 1.4
         ]
 
-        center_x = self.companion.get_centers()[0]
+        center_x = TBoard.companion.get_centers()[0]
         
         # Add extra chance when the mouse is nearby
         # So companion totally want to catch it
@@ -394,10 +393,13 @@ class JumpSetup(Behaviour):
         super().__init__(name)
 
     def initialise(self):
-        mouse_x, mouse_y = self.mouse.position
+        # He-he, another in a hurry obscurantism
+        # TODO: Rewrite velocity calculation logic
+        
+        mouse_x, mouse_y = TBoard.mouse.position
 
-        distance_x = mouse_x - self.companion.get_centers()[0]
-        distance_y = self.companion.get_ground_level() - mouse_y
+        distance_x = mouse_x - TBoard.companion.get_centers()[0]
+        distance_y = TBoard.companion.get_ground_level() - mouse_y
 
         gravity = 64
         t = sqrt(2 * abs(distance_y) / gravity)
@@ -408,14 +410,14 @@ class JumpSetup(Behaviour):
         vertical_velocity = min(26, (distance_y + 0.5 * gravity * t**2) / t / 4)
         vertical_velocity *= -1
 
-        self.companion.set_velocities(vx=horizontal_velocity, vy=vertical_velocity)
-        self.companion.start_animation(name='jump_start', repeat=1)
+        TBoard.companion.set_velocities(vx=horizontal_velocity, vy=vertical_velocity)
+        TBoard.companion.start_animation(name='jump_start', repeat=1)
 
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-3)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-3)
             return Status.RUNNING
-        self.companion.fall_to_ground()
+        TBoard.companion.fall_to_ground()
         return Status.SUCCESS
 
 
@@ -432,13 +434,13 @@ class Idle(Behaviour):
         )[0]
 
         if idle == 'idle':
-            self.companion.start_animation(name=idle, repeat=r.randint(3, 8))
+            TBoard.companion.start_animation(name=idle, repeat=r.randint(3, 8))
         else:
-            self.companion.start_animation(name=idle, repeat=1)
+            TBoard.companion.start_animation(name=idle, repeat=1)
     
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-3)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-3)
             return Status.RUNNING
         return Status.SUCCESS
     
@@ -451,7 +453,7 @@ class IsOneInteraction(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if len(self.companion.get_interactions()) == 1:
+        if len(TBoard.companion.get_interactions()) == 1:
             return Status.SUCCESS
         return Status.FAILURE
 
@@ -461,7 +463,7 @@ class IsInteraction(Behaviour):
         super().__init__(name)
 
     def update(self):
-        if self.name.startswith(self.companion.get_interactions()[0]):
+        if self.name.startswith(TBoard.companion.get_interactions()[0]):
             print(f"Interacting: {self.name[:-1]}")
             return Status.SUCCESS
         return Status.FAILURE
@@ -474,11 +476,11 @@ class Disturb(Behaviour):
         super().__init__(name)
 
     def initialise(self):
-        self.companion.start_animation(name='bristle', repeat=1)
+        TBoard.companion.start_animation(name='bristle', repeat=1)
     
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-3)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-3)
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -490,11 +492,11 @@ class Hold(Behaviour):
         super().__init__(name)
 
     def initialise(self):
-        self.companion.start_animation(name='grabbed')
+        TBoard.companion.start_animation(name='grabbed')
 
     def update(self):
-        if self.companion.is_animating():
-            self.companion.change_energy(-1)
+        if TBoard.companion.is_animating():
+            TBoard.companion.change_energy(-1)
             return Status.RUNNING
         return Status.SUCCESS
 
@@ -509,18 +511,18 @@ class Hold(Behaviour):
 #         self.result_queue = queue.Queue()
 
 #         name = 'idle_2'
-#         self.companion.animation_id = self.companion.after(
-#             self.companion.animations[name]['duration'],
-#                             self.companion.play_animation,
+#         TBoard.companion.animation_id = TBoard.companion.after(
+#             TBoard.companion.animations[name]['duration'],
+#                             TBoard.companion.play_animation,
 #                             name)
-#         self.companion.speaking_id = self.companion.after(0, self.companion.speaking, self.result_queue)
+#         TBoard.companion.speaking_id = TBoard.companion.after(0, TBoard.companion.speaking, self.result_queue)
         
 #     def update(self):
 #         try:
 #             result = self.result_queue.get_nowait()  # Non-blocking get from queue
-#             self.companion.dialog.show_dialog(result, self.companion.direction)
+#             TBoard.companion.dialog.show_dialog(result, TBoard.companion.direction)
 #             print("Dialog endid")
-#             self.companion.user_interacted = ''
+#             TBoard.companion.user_interacted = ''
 #             return Status.SUCCESS
 #         except queue.Empty:
 #             return Status.RUNNING
@@ -529,9 +531,9 @@ class Hold(Behaviour):
 # ==================================================
 #           Tree
 # ==================================================
-def create_tree(companion_api: Companion):
-    Behaviour.mouse = Controller()
-    Behaviour.companion = companion_api
+def create_tree(companion_api: "Companion"):
+    TBoard.companion = companion_api
+    TBoard.mouse = Controller()
 
     # Creating a root of the tree
     root = Selector(name="Root", memory=True)
@@ -542,7 +544,7 @@ def create_tree(companion_api: Companion):
         Sequence(name="Falling", memory=True, children=[
             IsAboveGround(), Fall(), Landing()]),
         Sequence(name="JumpingOut", memory=True, children=[
-            IsUnderGround(), JumpSetupFrom(), JumpOut()]),
+            IsUnderGround(), JumpOutSetup(), JumpOut()]),
         IsOnGround(),
     ])
     
