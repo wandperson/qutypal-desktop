@@ -22,3 +22,7 @@ coverage.xml
 *.log
 *.tmp
 *.swp
+
+# Distributed
+build/
+dist/

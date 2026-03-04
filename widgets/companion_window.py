@@ -186,7 +186,7 @@ class CompanionWindow(QWidget):
         """
         L = math.hypot(dx, dy)
         if L == 0:
-            return 0, 0
+            return (0, 0)
 
         L0 = 800
         terminal_velocity = 64.0

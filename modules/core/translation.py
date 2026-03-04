@@ -20,4 +20,4 @@ try:
     # translator.install()
 except FileNotFoundError as e:
     print(f"Translation file not found for {app_settings.language}: {e}")
-    sys.exit(1)
+    # sys.exit(1)
