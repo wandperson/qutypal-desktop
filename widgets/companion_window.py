@@ -9,7 +9,7 @@ from PyQt6.QtGui import QAction
 from PyQt6.QtCore import Qt
 
 # Custom modules
-from modules.core import lang_, platman
+from modules.core import lang_
 from modules.settings import companion_settings
 from .dialogue_window import DialogWindow
 from .sprite_label import SpriteLabel
@@ -36,8 +36,15 @@ class CompanionWindow(QWidget):
         
         self._companion = companion
 
-        # Holds state for platform attributes
-        self.user_screen = Screen(*platman.get_resolution())
+        # Screen size across all monitors
+        desktop = self.screen().virtualGeometry()
+        # Same area, but without taskbars/panels
+        work_area = self.screen().availableVirtualGeometry()
+        self.user_screen = Screen(
+            width=desktop.width(),
+            height=desktop.height(),
+            work_area_height=work_area.y() + work_area.height()
+        )
 
         self._start_pos = None
         self._drag_pos = None
